@@ -1,0 +1,341 @@
+/*############################# GLOBAL styles #############################*/
+
+:root{
+    --background: black;
+    --text-colour-white: white;
+    --link-hover: #545454;
+    --link-transition: 0.3s ease-in-out;
+    --fontsize-18: 1.125rem;
+    --fontsize-24: 1.5rem;
+    --fontsize-32: 2rem;
+    --fontsize-40: 2.5rem;
+    --fontsize-48: 3rem;
+    --fontsize-72: 4.5rem;
+    --fontsize-88: 5.5rem;
+    --paddingsize-16: 1rem;
+    --wrapper-maxWidth: 69.375rem;
+    --gap-size: 1rem; 
+    --menu-button-height: 2rem;
+    --menu-button-width: 2rem;
+    --menu-icon-height: 0.125rem;
+    --menu-icon-transition: transform 0.15s ease-in-out;
+    --menu-dropdown-transition: opacity 0.15s ease-in-out;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 100%;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body{
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+    font-size: var(--fontsize-18);
+    line-height: 1.56;
+    background-color: var(--background);
+    color: var(--text-colour-white);
+}
+
+header{
+    position: relative;
+    z-index: 1;
+}
+
+nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    gap: var(--gap-size);
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin-top: 1.25rem;
+}
+
+a{
+    transition: color var(--link-transition);
+}
+
+a:hover{
+    color: var(--link-hover);
+    cursor: pointer;
+}
+
+h1, h2, h3, p {
+    margin-top: 0;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+}
+
+h1{
+    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 0.7rem + 7.7vw, 5.5rem);
+    margin-bottom: 20px;
+    letter-spacing: -0.028em;
+}
+
+p{
+    font-size: 1rem;
+    font-size: clamp(1rem, 0.79rem + 0.89vw, 1.125rem);
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.wrapper{
+    width: calc(100% - 2rem);
+    max-width: var(--wrapper-maxWidth);
+    margin-inline: auto;
+    /* position: relative; */
+}
+
+/* 600px | Tablet size */
+@media (min-width: 37.5em){ 
+    .wrapper{
+        width: calc(100% - 3.75rem);
+    }
+}
+
+/*############################# HEADER styles #############################*/
+.menu-trigger{
+    cursor: pointer;
+}
+
+.menu-trigger,
+.menu-trigger input{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: var(--menu-button-width);
+    height: var(--menu-button-height);
+    margin: 0;
+}
+
+.menu-trigger input{
+    appearance: none;
+    pointer-events: none;
+}
+
+.menu-trigger::before,
+.menu-trigger::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: var(--menu-icon-height);
+    background-color: white;
+    transition: var(--menu-icon-transition);
+}
+
+.menu-trigger::before{
+    top: 0.5rem;
+}
+
+.menu-trigger::after{
+    bottom: 0.5rem;
+}
+
+.menu-trigger:has(input:checked)::before{ 
+    transform: translate(0, .4375rem) rotate(45deg) skew(0, 0) scaleX(1) scaleY(1);
+}
+
+.menu-trigger:has(input:checked)::after{
+    transform: translate(0, -.4375rem) rotate(-45deg) skew(0, 0) scaleX(1) scaleY(1);
+}
+
+
+.menu-dropdown{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    gap: var(--gap-size);
+    opacity: 0;
+    transition: var(--menu-dropdown-transition); 
+    /*
+       Because I'm currently using opacity to hide the menu, this will also trigger
+       when going from desktop -> mobile. Minor bug that happens when resizing the window
+    */
+}
+
+.menu-trigger:has(input:checked) + .menu-dropdown{
+    opacity: 1;
+}
+
+
+@media (min-width: 37.5em){
+    nav{
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .menu-trigger{
+        display: none;
+    }
+
+    .menu-dropdown{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        gap: var(--gap-size);
+        opacity: 1;
+    }
+}
+
+/*############################# MAIN styles #############################*/
+canvas{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+/*############################# INTRO styles #############################*/
+
+.intro{
+    height: 90vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro__container{
+}
+
+.intro__headline{
+    text-align: center;
+    background: linear-gradient(to right, #71A6D1,#99C4E1, #ACD3E8,
+     #C0E2F0, #D4F1F8, #C0E2F0, #ACD3E8, #99C4E1, #71A6D1);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: headline-gradient 5s linear infinite;
+}
+
+@keyframes headline-gradient {
+    to {
+        background-position: 200%;
+    }
+}
+
+.intro__tagline{
+    text-align: center;
+    margin: 0;
+}
+
+.intro__tagline-highlight{
+    background: linear-gradient(to right, #71A6D1,#99C4E1, #ACD3E8,
+    #C0E2F0, #D4F1F8, #C0E2F0, #ACD3E8, #99C4E1, #71A6D1);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: tagline-gradient 7s linear infinite;
+    
+}
+
+@keyframes tagline-gradient {
+    to {
+        background-position: 200%;
+    }
+}
+
+
+/*############################# ABOUT styles #############################*/
+.about {
+    height: 100vh; /* might need to adjust this later */
+}
+
+.about__wrapper {
+    padding-bottom: 80px;
+    border-bottom: 1px solid var(--text-colour-white);
+}
+
+.about__image {
+    margin-inline: auto;
+    /* position: absolute;
+    top: 0;
+    left: 50%;
+    translate: -50%; */
+    display: block;
+}
+.about__text {
+    position: relative;
+    margin-top: 295px;
+    text-align: center;
+}
+
+.about__headline {
+    margin-bottom: 24px;
+}
+
+.about__description {
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.about__headline > br {
+    display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference){
+    .about-text {
+        opacity: 0;
+        animation: fade-in linear forwards;
+        animation-timeline: view();
+        animation-range: entry 0% 50%;
+    }
+    
+    @keyframes fade-in {
+        to {opacity: 1;}
+    }
+}
+
+@media (min-width: 37.5em) {
+    .about__wrapper {
+        padding-bottom: 60px;
+    }
+    
+    .about__image {
+        width: 322px;
+        height: auto;
+        right: 0;
+        translate: 0;
+    }
+    
+    .about__text {
+        width: 70vw;
+        text-align: left;
+        margin-top: 0;
+    }
+
+    .about__headline {
+        margin-bottom: 60px;
+    }    
+
+    .about__description {
+        margin-bottom: 34px;
+    }
+}
+
+@media (min-width: 62.5em) {
+    .about__wrapper {
+        /* position: relative; */
+    }
+    
+    .about__headline {
+        margin-bottom: 43px;
+    }    
+
+    .about__description {
+        margin-bottom: 66px;
+    }
+}
+/*############################# FOOTER styles #############################*/
+
