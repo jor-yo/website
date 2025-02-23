@@ -321,6 +321,7 @@ canvas{
 
     .about__description {
         margin-bottom: 34px;
+        width: 70%;
     }
 }
 
@@ -335,6 +336,7 @@ canvas{
 
     .about__description {
         margin-bottom: 66px;
+        width: 38ch;
     }
 }
 /*############################# FOOTER styles #############################*/
