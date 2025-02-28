@@ -31,9 +31,12 @@ html {
     box-sizing: inherit;
 }
 
+body, input, textarea {
+    font-family: 'Urbanist', sans-serif;
+}
+
 body{
     margin: 0;
-    font-family: 'Urbanist', sans-serif;
     font-size: var(--fontsize-18);
     line-height: 1.56;
     background-color: var(--background);
@@ -415,6 +418,74 @@ canvas{
 }
 
 /*############################# CONTACT styles #############################*/
+
+.contact {
+
+}
+
+.contact__wrapper {
+
+}
+
+.contact__text {
+    text-align: center;
+}
+
+.contact__headline {
+
+}
+
+.contact__description {
+
+}
+
+.contact__form {
+
+}
+
+.contact__control.align-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.contact__control {
+
+}
+
+.contact__control input,
+.contact__control textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--text-colour-white);
+    color: var(--text-colour-white);
+    font-size: 1rem;
+    line-height: 1.625;
+    font-family: 'Urbanist', sans-serif;
+    padding: 16px 24px;
+    margin-block-end: 16px;
+}
+
+.contact__control > *::placeholder{
+    color: var(--text-colour-white);
+    opacity: 50%;
+    text-transform: uppercase;
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.contact__button{
+    display: inline-block;
+    padding-bottom: 0.625rem;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    letter-spacing: 0.143em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-colour-white);
+    background-color: transparent;
+}
+
 
 
 /*############################# FOOTER styles #############################*/
