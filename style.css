@@ -4,6 +4,7 @@
     --background: black;
     --text-colour-white: white;
     --link-hover: #545454;
+    --invalid: hsl(7, 100%, 68%);
     --link-transition: 0.3s ease-in-out;
     --fontsize-18: 1.125rem;
     --fontsize-24: 1.5rem;
@@ -67,6 +68,22 @@ a{
 a:hover{
     color: var(--link-hover);
     cursor: pointer;
+}
+
+a:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 2px dashed #71A6D1;
+    outline-offset: 2px;
+}
+
+input:invalid, textarea:invalid {
+    outline-color: var(--invalid);
+}
+
+input:invalid::after {
+    content: '';
+    background-image: url('/assets/icons/icon-error.svg');
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 h1, h2, h3, p {
@@ -486,6 +503,15 @@ canvas{
     background-color: transparent;
 }
 
+.contact__invalid-icon {
+    display: none;
+    width: 24px;
+    height: 24px;
+}
+
+.contact input:focus-visible:invalid ~ .contact__invalid-icon {
+    display: inline-block;
+}
 
 
 /*############################# FOOTER styles #############################*/
