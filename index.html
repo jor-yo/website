@@ -25,10 +25,10 @@
                     <input type="checkbox">
                 </label>
                 <div class="menu-dropdown">
-                    <a>About</a>
+                    <a href="#about">About</a>
                     <a>Projects</a>
                     <a>Work</a>
-                    <a>Contact</a>
+                    <a href="#contact">Contact</a>
                 </div>
             </nav>
         </header>
@@ -42,7 +42,7 @@
                     </div>    
                 </div>
             </section>
-            <section class="about">
+            <section class="about" id="about">
                 <div class="wrapper about__wrapper section-border">
                     <picture>
                         <source 
@@ -104,7 +104,7 @@
                     </div>
                 </div>
             </section>
-            <section class="contact">
+            <section class="contact" id="contact">
                 <div class="wrapper contact__wrapper">
                     <div class="contact__text">
                         <h2 class="contact__headline">Contact</h2>
@@ -123,7 +123,7 @@
                         </div>
                         <div class="contact__control">
                             <label for="message"></label>
-                            <textarea name="message" id="message" placeholder="Message"></textarea>
+                            <textarea name="message" id="message" placeholder="Message" cols="30" rows="3"></textarea>
                         </div>
                         <div class="contact__control align-right">
                             <button type="submit" class="contact__button">Contact Me</button>

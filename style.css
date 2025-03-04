@@ -7,8 +7,10 @@
     --invalid: hsl(7, 100%, 68%);
     --link-transition: 0.3s ease-in-out;
     --fontsize-18: 1.125rem;
+    --fontsize-20: 1.25rem;
     --fontsize-24: 1.5rem;
     --fontsize-32: 2rem;
+    --fontsize-36: 2.25rem;
     --fontsize-40: 2.5rem;
     --fontsize-48: 3rem;
     --fontsize-72: 4.5rem;
@@ -441,15 +443,15 @@ canvas{
 }
 
 .contact__wrapper {
-
+    padding-block: 84px;
 }
 
 .contact__text {
-    text-align: center;
+
 }
 
 .contact__headline {
-
+    margin-block-end: var(--fontsize-20);
 }
 
 .contact__description {
@@ -513,6 +515,29 @@ canvas{
     display: inline-block;
 }
 
+@media(min-width: 62.5em) {
+    .contact__wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 27.8rem);
+        justify-content: space-between;
+    }
+
+    .contact__headline {
+        margin-block-end: var(--fontsize-36);
+    }
+
+}
+
+@media(max-width: 62.49875em) {
+    .contact__wrapper {
+        max-width: 27.8rem;
+    }
+
+    .contact__text {
+        text-align: center;
+    }
+
+}
 
 /*############################# FOOTER styles #############################*/
 
