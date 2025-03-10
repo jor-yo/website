@@ -541,3 +541,12 @@ canvas{
 
 /*############################# FOOTER styles #############################*/
 
+.footer__wrapper{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+.footer__linkedin-icon {
+    width: 24px;
+    height: 24px;
+}
