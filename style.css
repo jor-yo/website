@@ -589,6 +589,7 @@ canvas{
 @media (min-width: 62.5em) and (prefers-reduced-motion: no-preference) {
     .footer__item > a > span {
         opacity: 0;
+        transform: none;
         transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
     }
     
