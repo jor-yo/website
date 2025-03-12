@@ -110,6 +110,26 @@ p{
     margin-bottom: 0;
 }
 
+button {
+    display: inline-block;
+    padding: 8px 12px;
+    font-size: 1rem;
+    line-height: 1.625rem;
+    letter-spacing: 0.143em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-colour-white);
+    background-color: transparent;
+    border: 2px white solid;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #ACD3E8;
+    border: 2px #ACD3E8 solid;
+    color: var(--background);
+}
+
 .wrapper{
     width: calc(100% - 2rem);
     max-width: var(--wrapper-maxWidth);
@@ -482,7 +502,7 @@ canvas{
     line-height: 1.625;
     font-family: 'Urbanist', sans-serif;
     padding: 16px 24px;
-    margin-block-end: 16px;
+    margin-block-end: 24px
 }
 
 .contact__control > *::placeholder{
@@ -494,15 +514,7 @@ canvas{
 }
 
 .contact__button{
-    display: inline-block;
-    padding-bottom: 0.625rem;
-    font-size: 1rem;
-    line-height: 1.625rem;
-    letter-spacing: 0.143em;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--text-colour-white);
-    background-color: transparent;
+
 }
 
 .contact__invalid-icon {
