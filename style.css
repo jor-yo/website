@@ -65,6 +65,8 @@ nav{
 
 a{
     transition: color var(--link-transition);
+    color: var(--text-colour-white);
+    text-decoration: none;
 }
 
 a:hover{
