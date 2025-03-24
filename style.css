@@ -208,6 +208,7 @@ p{
     gap: var(--gap-size);
     opacity: 0;
     transition: var(--menu-dropdown-transition); 
+    pointer-events: none;
     /*
        Because I'm currently using opacity to hide the menu, this will also trigger
        when going from desktop -> mobile. Minor bug that happens when resizing the window
@@ -216,6 +217,7 @@ p{
 
 .menu-trigger:has(input:checked) + .menu-dropdown{
     opacity: 1;
+    pointer-events: auto;
 }
 
 
@@ -235,6 +237,7 @@ p{
         justify-content: end;
         gap: var(--gap-size);
         opacity: 1;
+        pointer-events: auto;
     }
 }
 
