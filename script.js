@@ -1,6 +1,9 @@
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
+// canvas.style.width = winndow.innerWidth + 'px';
+// canvas.style.height = winndow.innerHeight + 'px';
+
 let width = (canvas.width = window.innerWidth);
 let height = (canvas.height = window.innerHeight);
 
@@ -70,6 +73,8 @@ function updateCanvas() {
     height = (canvas.height = window.innerHeight);
 
   }
+
+  ctx.clearRect(0, 0, width, height);
 
   for (const triangle of triangles){
     triangle.draw();
