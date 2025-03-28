@@ -1,3 +1,5 @@
+// Canvas related code
+
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -87,4 +89,15 @@ function updateCanvas() {
 }
 
 updateCanvas();
-// initialise();
+
+
+// contact form
+const form = document.querySelector(".contact__form");
+const formUserName = document.getElementById("name");
+const formUserEmail = document.getElementById("email");
+
+form.addEventListener("submit", (e) => {
+  if (!formUserName.validity.valid || !formUserEmail.validity.valid) {
+    e.preventDefault();
+  }
+})
