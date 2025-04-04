@@ -96,8 +96,29 @@ const form = document.querySelector(".contact__form");
 const formUserName = document.getElementById("name");
 const formUserEmail = document.getElementById("email");
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
   if (!formUserName.validity.valid || !formUserEmail.validity.valid) {
-    e.preventDefault();
+    console.log("Not valid");
+    //Add custom validation msg code here
+    return;
+  } else {
+    try{
+      console.log("It worked!");
+      const formData = new FormData(form);
+      const response = await fetch("joryo.dev/form-submission", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok){
+        throw new Error(`HTTP error. ${response.status}`);
+      }
+
+    } catch(error) {
+      console.log(`Failed to submit form. Error: ${error}`);
+      //Add custom error msg here
+    }
+
   }
 })
