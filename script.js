@@ -107,9 +107,9 @@ form.addEventListener("submit", async (e) => {
       console.log("It worked! Now sending form");
       const formData = new FormData(form);
       //formData = form. something <--- 
-      const response = await fetch("api.jordan-young.com/form-submission", {
+      const response = await fetch("https://api.jordan-young.com/form-submission", {
         method: "POST",
-        body: formData,
+        body: JSON.stringify(formData)
       });
 
       const responseJSON = await response.json();
