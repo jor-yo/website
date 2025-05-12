@@ -104,12 +104,16 @@ form.addEventListener("submit", async (e) => {
     return;
   } else {
     try{
-      console.log("It worked!");
+      console.log("It worked! Now sending form");
       const formData = new FormData(form);
-      const response = await fetch("joryo.dev/form-submission", {
+      //formData = form. something <--- 
+      const response = await fetch("jordan-young.com/form-submission", {
         method: "POST",
         body: formData,
       });
+
+      const responseJSON = await response.json();
+      console.log(`${responseJSON.message} + ${response.status}`);
 
       if (!response.ok){
         throw new Error(`HTTP error. ${response.status}`);
