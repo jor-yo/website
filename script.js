@@ -109,7 +109,11 @@ form.addEventListener("submit", async (e) => {
       //formData = form. something <--- 
       const response = await fetch("https://api.jordan-young.com/form-submission", {
         method: "POST",
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
+        mode: 'cors', 
+        headers: {
+          "Content-Type": "application/json"
+        }
       });
 
       const responseJSON = await response.json();
