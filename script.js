@@ -105,11 +105,10 @@ form.addEventListener("submit", async (e) => {
   } else {
     try{
       console.log("It worked! Now sending form");
-      const formData = new FormData(form);
-      //formData = form. something <--- 
+      const formData = new FormData(form); 
       const response = await fetch("https://api.jordan-young.com/form-submission", {
         method: "POST",
-        body: JSON.stringify(formData),
+        body: JSON.stringify(Object.fromEntries(formData)),
         mode: 'cors', 
         headers: {
           "Content-Type": "application/json"
@@ -117,14 +116,14 @@ form.addEventListener("submit", async (e) => {
       });
 
       const responseJSON = await response.json();
-      console.log(`${responseJSON.message} + ${response.status}`);
+      console.log(`${responseJSON.message}${response.status}`);
 
       if (!response.ok){
         throw new Error(`HTTP error. ${response.status}`);
       }
 
     } catch(error) {
-      console.log(`Failed to submit form. Error: ${error}`);
+      console.log(`Failed to submit form. Network error: ${error}`);
       //Add custom error msg here
     }
 
