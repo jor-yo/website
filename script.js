@@ -125,7 +125,7 @@ form.addEventListener("submit", async (e) => {
       }
 
     } catch(error) {
-      console.log(`Failed to submit form. Network error: ${error}`);
+      console.log(`Server error: ${error}`);
       //Add custom error msg here
     }
 
