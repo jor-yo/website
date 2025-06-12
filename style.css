@@ -61,6 +61,7 @@ nav{
     left: 0;
     right: 0;
     margin-top: 1.25rem;
+    pointer-events: none;
 }
 
 a{
@@ -166,6 +167,7 @@ p{
     width: var(--menu-button-width);
     height: var(--menu-button-height);
     margin: 0;
+    pointer-events: auto;
 }
 
 .menu-trigger input{
@@ -209,10 +211,6 @@ p{
     opacity: 0;
     transition: var(--menu-dropdown-transition); 
     pointer-events: none;
-    /*
-       Because I'm currently using opacity to hide the menu, this will also trigger
-       when going from desktop -> mobile. Minor bug that happens when resizing the window
-    */
 }
 
 .menu-trigger:has(input:checked) + .menu-dropdown{
@@ -303,7 +301,6 @@ canvas{
 
 /*############################# ABOUT styles #############################*/
 .about {
-    /* height: 100vh; might need to adjust this later */
 }
 
 .about__wrapper {
@@ -337,6 +334,14 @@ canvas{
     display: inline-block;
 }
 
+/* .about__picture {
+}
+
+.about__picture > img {
+    border-radius: 50%;
+    margin-bottom: 16px;
+} */
+
 @media (prefers-reduced-motion: no-preference){
     .about__text {
         opacity: 0;
@@ -353,6 +358,8 @@ canvas{
 @media (min-width: 37.5em) {
     .about__wrapper {
         padding-bottom: 60px;
+        /* padding: 60px 0;
+        display: flex; */
     }
     
     .about__image {
@@ -375,6 +382,15 @@ canvas{
         margin-bottom: 34px;
         width: 70%;
     }
+
+    /* .about__picture {
+        order: 2;
+    } */
+    
+    /* .about__picture > img {
+        margin-bottom: 0;
+        margin-left: 8px;
+    } */
 }
 
 @media (min-width: 62.5em) {
@@ -390,6 +406,10 @@ canvas{
         margin-bottom: 66px;
         width: 38ch;
     }
+
+    /* .about__headline > span {
+        display: block;
+    } */
 }
 /*############################# SKILLS styles #############################*/
 .skills {
@@ -470,6 +490,9 @@ canvas{
 
 .projects__grid {
     display: grid;
+    /* gap: 32px;
+    grid-template-columns: 1fr;
+    margin-bottom: 30px; */
 }
 
 .projects__item{
@@ -477,12 +500,22 @@ canvas{
     background-color: #545454;
     border-radius: 15px;
 }
+/* 
+.projects__item > img {
+    width: 100%;
+    height: 180px;
+    border-radius: 5px 5px 0 0;
+    display: inline-block;
+} */
 
 .projects__item-headline {
+    /* padding: 20px;
+    margin-block-end: 0; */
 }
 
 .projects__item-description {
     display: inline-block;
+    /* padding-inline: 20px; */  
 }
 
 .projects__item-codepen{
@@ -494,6 +527,14 @@ canvas{
         margin-inline: 80px;
         padding-block: 40px;
     }
+
+    /* .projects__grid:has(> .projects__item:only-child){
+        grid-template-columns: 1fr;
+    }
+    
+    .projects__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }     */
 }
 
 @media (min-width: 62.5em) {
